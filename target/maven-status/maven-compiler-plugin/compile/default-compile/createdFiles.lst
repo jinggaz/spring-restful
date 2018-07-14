@@ -1,4 +1,3 @@
 com\dong\spring\model\Employee.class
 com\dong\spring\config\ServiceConfig.class
 com\dong\spring\controller\EmployeeController.class
-com\dong\spring\controller\EmpRestURIConstants.class

@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,13 +24,24 @@ import com.dong.spring.model.Employee;
  */
 @Controller
 public class EmployeeController {
-	
+		
 	//Map to store employees, ideally we should use database
 	Map<Integer, Employee> empData = new HashMap<Integer, Employee>();
+	
+	//test to get value from configuration properties file
+	@Value("${test.value}")
+	private String tValue;
+	@Value("${test.sql}")
+	private String tSql;
+
 	
 	@RequestMapping(value = "/rest/emp/dummy", method = RequestMethod.GET)
 	public @ResponseBody Employee getDummyEmployee() {
 		System.out.println("Start getDummyEmployee");
+
+		System.out.println("\n\n1########### tValue in Controller is " + tValue);
+		System.out.println("\n1^^^^^^^^^^^^ tSql in Controller is " + tSql);
+		
 		Employee emp = new Employee();
 		emp.setId(9999);
 		emp.setName("Dummy");
