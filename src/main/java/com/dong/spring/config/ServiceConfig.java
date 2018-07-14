@@ -29,6 +29,7 @@ public class ServiceConfig {
 		return new MappingJackson2HttpMessageConverter();
 	}
 
+	//Bean for to get a user configuration property using Spring property place holder
 	@Bean
 	public static PropertyPlaceholderConfigurer properties() {
 		PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
